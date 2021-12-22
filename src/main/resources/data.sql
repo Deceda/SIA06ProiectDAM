@@ -1,0 +1,1 @@
+INSERT INTO users (fname, lname, email, password, position) VALUES ('First', 'Last', 'user@gmail.com', '$2a$10$et.spcFiyH3XTx0.8SvfX.bSvBw61wG8YpgY5Mdus9QbVZYOOh6vO', 'projectmanager');
