@@ -15,10 +15,10 @@ public class Bug {
     @Id
     @Column(name = "bug_id")
     private Long bugId;
-    @Column(name = "project_id")
+    @JoinColumn(name = "project_id")
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private Project project;
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private User user;
     @Column(name = "title")

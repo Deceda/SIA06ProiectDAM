@@ -15,10 +15,10 @@ public class Task {
     @Id
     @Column(name = "task_id")
     private Long taskId;
-    @Column(name = "project_id")
+    @JoinColumn(name = "project_id")
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private Project project;
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private User userId;
     @Column(name = "title")

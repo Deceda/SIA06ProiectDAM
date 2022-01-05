@@ -15,7 +15,7 @@ public class Project {
     @Id
     @Column(name = "project_id")
     private Long projectId;
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private User user;
     @Column(name = "title")

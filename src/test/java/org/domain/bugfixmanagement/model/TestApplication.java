@@ -8,8 +8,8 @@ import org.springframework.test.context.TestPropertySource;
 
 @SpringBootConfiguration
 @EnableAutoConfiguration
-@ComponentScan
-@TestPropertySource("classpath: application.properties")
+@ComponentScan(basePackages = {"org.domain.bugfixmanagement"})
+@TestPropertySource("classpath:application.properties")
 public class TestApplication {
 
 }

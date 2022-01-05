@@ -11,13 +11,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.transaction.annotation.Transactional;
+import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.containers.MySQLContainer;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +26,7 @@ import java.util.Optional;
 @SpringBootTest(classes = TestApplication.class)
 @Testcontainers
 public class BugRepositoryTest {
+
     @Container
     public static final MySQLContainer<?> mysqlcontainer = new MySQLContainer<>("mysql:5.7.34")
             .withDatabaseName("integration-tests-db")
@@ -44,9 +45,9 @@ public class BugRepositoryTest {
 
     private void createData(){
         List<Bug> bugs = List.of(
-                new Bug(1L, new Project(), new User(), "titlu", "descriere", "status", "creat"),
-                new Bug(2L, new Project(), new User(), "titlu", "descriere", "status", "creat"),
-                new Bug(3L, new Project(), new User(), "titlu", "descriere", "status", "creat")
+                new Bug(1L, Project.builder().projectId(1L).build(), User.builder().id(1L).build(), "titlu", "descriere", "status", "creat"),
+                new Bug(2L, Project.builder().projectId(2L).build(), User.builder().id(2L).build(), "titlu", "descriere", "status", "creat"),
+                new Bug(3L, Project.builder().projectId(3L).build(), User.builder().id(3L).build(), "titlu", "descriere", "status", "creat")
         );
 
         bugRepository.deleteAll();
