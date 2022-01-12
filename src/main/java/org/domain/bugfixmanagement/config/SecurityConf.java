@@ -20,7 +20,9 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
         httpSecurity
             .authorizeRequests()
                 .regexMatchers(HttpMethod.GET, "(?!/).+").permitAll()
-                .anyRequest().permitAll();
+                .regexMatchers(HttpMethod.POST, "(?!/).+").permitAll()
+                .anyRequest().permitAll().and()
+                .csrf().disable();
     }
 
 }

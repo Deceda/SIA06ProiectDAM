@@ -16,7 +16,7 @@ public class Project {
     @Column(name = "project_id")
     private Long projectId;
     @JoinColumn(name = "user_id")
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private User user;
     @Column(name = "title")
     private String title;

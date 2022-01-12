@@ -16,10 +16,10 @@ public class Task {
     @Column(name = "task_id")
     private Long taskId;
     @JoinColumn(name = "project_id")
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Project project;
     @JoinColumn(name = "user_id")
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private User userId;
     @Column(name = "title")
     private String title;

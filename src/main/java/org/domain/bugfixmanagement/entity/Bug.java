@@ -14,12 +14,13 @@ import javax.persistence.*;
 public class Bug {
     @Id
     @Column(name = "bug_id")
+    @GeneratedValue
     private Long bugId;
     @JoinColumn(name = "project_id")
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Project project;
     @JoinColumn(name = "user_id")
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private User user;
     @Column(name = "title")
     private String title;
